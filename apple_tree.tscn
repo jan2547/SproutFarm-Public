@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://be42yppllscqt"]
+
+[ext_resource type="Texture2D" uid="uid://bfkx4emyuo6yn" path="res://assets/Sprout Lands - Sprites - Basic pack/Objects/Basic_Grass_Biom_things.png" id="1_0fpmq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iamq8"]
+size = Vector2(11, 7.5)
+
+[node name="AppleTree" type="StaticBody2D" unique_id=1579871912]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=836743105]
+position = Vector2(0, -14)
+texture = ExtResource("1_0fpmq")
+region_enabled = true
+region_rect = Rect2(49.88649, 0.2027359, 27.726883, 30.876274)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1606850113]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_iamq8")

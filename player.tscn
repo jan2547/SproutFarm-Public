@@ -138,22 +138,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sjnf6"]
-radius = 4.0
-height = 8.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2tmi"]
+radius = 5.0
+height = 10.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1726467435]
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1040150377]
+position = Vector2(0, -8)
+rotation = -0.0034052394
 sprite_frames = SubResource("SpriteFrames_sjnf6")
 animation = &"walk_down"
 speed_scale = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1110576159]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_sjnf6")
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_h2tmi")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1877498169]
+position = Vector2(0, 1)
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true
