@@ -1,5 +1,5 @@
 extends CharacterBody2D #make the script control our char
-
+var nearby_object: Interactable = null # store object the cat can interact with(null = no obj nearby)
 
 const SPEED = 80.0 #set movement speed to 80pixels/s
 @onready var sprite =$AnimatedSprite2D
@@ -26,6 +26,22 @@ func _physics_process(_delta: float) -> void:
 		#not moving
 		sprite.stop()
 		sprite.frame = 0
-	
-	
 	move_and_slide() 
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("ji_interact"): #press E
+		if nearby_object != null: #if there is obj nearby
+			nearby_object.interact() # interact with obj
+		else:# no obj nearby
+			print("nothing nearby") #implement later: output to the game
+
+func _on_interaction_area_area_entered(area: Area2D) -> void:
+	if area is Interactable: 
+		nearby_object = area# remember the obj that entering cat's  detection circle
+		print("Object detected")
+
+
+func _on_interaction_area_area_exited(area: Area2D) -> void:
+	if nearby_object ==area: # check whether the object leaving is the one we're tracking
+		nearby_object =null #clears the reference bc the object is no longer neareby
+		print("object left range")
